@@ -5,8 +5,9 @@
   Python 3.x script that takes data from localized photos (in selected folder) and saves it do csv file (in that folder).
   One can open this csv file in QGIS as a point layer and view the photos by road_inspection_viewer plugin.
   This script requires PyQT5 and exif modules.
+  Photo files with .jpg or .jpeg extension.
 
-  version: 0.1.0
+  version: 0.1.1
   
   --------------------------------------
   Date : 04.12.2019
@@ -46,7 +47,7 @@ class EXIF_parser(QWidget):
             print(geotagged_images_folder)
             result_file_full_path = os.path.join(geotagged_images_folder, "QgisCsvLyr_" + time.strftime("%Y-%m-%d_%H_%M_%S", time.localtime(time.time())) + ".csv")
             result_file = open(result_file_full_path, 'w')
-            img_file_names = [f for f in os.listdir(geotagged_images_folder) if os.path.isfile(os.path.join(geotagged_images_folder, f)) and os.path.splitext(f)[1].upper() == '.JPG']
+            img_file_names = [f for f in os.listdir(geotagged_images_folder) if os.path.isfile(os.path.join(geotagged_images_folder, f)) and (os.path.splitext(f)[1].upper() == '.JPG' or os.path.splitext(f)[1].upper() == '.JPEG')]
             print(','.join(self.HEADER_TUPLE))
             result_file.write(','.join(self.HEADER_TUPLE) + '\n')
             for img_file_name in img_file_names:

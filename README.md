@@ -7,8 +7,9 @@ Python 3.x script that takes data from geotagged photos (in selected folder) and
 One can open this csv file in QGIS as a point layer and view the photos by road_inspection_viewer plugin.
 
 # Requirements:
+Photo files with .jpg or .jpeg extension.
 This script requires PyQT5 and exif modules.
- 
+
 # License:
 GNU General Public License, version 2
 
