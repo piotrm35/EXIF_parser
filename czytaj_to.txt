@@ -1,0 +1,18 @@
+EXIF_parser
+
+# Przeznaczenie:
+Skrypt Python 3.x, który pobiera dane ze zdjêæ ze znacznikami geograficznymi (w wybranym folderze) i zapisuje je jako plik csv (w tym folderze).
+
+# Co dalej:
+Mo¿na otworzyæ ten plik csv w QGIS jako warstwê punktow¹ (ustawiæ Geometry CRS na EPSG:4326) i przegl¹daæ zdjêcia za pomoc¹ wtyczki road_inspection_viewer.
+
+# Wymagania:
+Pliki zdjêæ z rozszerzeniem .jpg lub .jpeg.
+Ten skrypt wymaga modu³ów PyQT5 i exif.
+
+# Uruchomienie bezpoœrednio w systemie Windows (Windows 10 x64):
+Rozpakuj plik EXIF_parser.7z i uruchom plik EXIF_parser.exe.
+
+# Licencja:
+GNU General Public License, wersja 2.
+
