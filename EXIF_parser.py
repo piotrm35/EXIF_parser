@@ -2,7 +2,7 @@
 /***************************************************************************
   EXIF_parser.py
 
-  Python 3.x script that takes data from localized photos (in selected folder) and saves it do csv file (in that folder).
+  Python 3.x script that takes data from localized photos (in selected folder) and saves it to csv file (in that folder).
   One can open this csv file in QGIS as a point layer (set the Geometry CRS to EPSG:4326) and view the photos by road_inspection_viewer plugin.
   This script requires PyQT5 and exif modules.
   Photo files with .jpg or .jpeg extension.
