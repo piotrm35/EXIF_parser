@@ -7,7 +7,7 @@
   This script requires PyQT5 and exif modules.
   Photo files with .jpg or .jpeg extension.
 
-  version: 0.1.2
+  version: 0.1.3
   
   --------------------------------------
   Date : 04.12.2019
@@ -27,6 +27,7 @@ import os, sys
 import time
 from PyQt5.QtWidgets import QApplication, QWidget, QFileDialog
 from exif import Image
+from Lat_Lon_extractor import Lat_Lon_extractor
 
 		
 #========================================================================================================
@@ -38,7 +39,9 @@ class EXIF_parser(QWidget):
 
     def __init__(self):
         super().__init__()
+        self.lat_Lon_extractor = Lat_Lon_extractor()
         self.work()
+        input('Press Enter to exit:')
         sys.exit()
 
     def work(self):
@@ -65,8 +68,8 @@ class EXIF_parser(QWidget):
         try:
             with open(image_path, 'rb') as image_file:
                 img = Image(image_file)
-                img_lat_str = str(img.gps_latitude[0] + img.gps_latitude[1] / 60.0 + img.gps_latitude[2] / (60.0 * 60.0))
-                img_lon_str = str(img.gps_longitude[0] + img.gps_longitude[1] / 60.0 + img.gps_longitude[2] / (60.0 * 60.0))
+                img_lat_str = self.lat_Lon_extractor.get_lat_lon_str(img.gps_latitude)
+                img_lon_str = self.lat_Lon_extractor.get_lat_lon_str(img.gps_longitude)
                 time_stamp_str = img.datetime_original
                 file_names = os.path.basename(image_path)
                 return (img_lat_str, img_lon_str, time_stamp_str, file_names)
